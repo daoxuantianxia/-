@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Video Streaming Demonstration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script type="text/javascript" src="{{url_for('static',filename='js/jquery-3.2.1.min.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#forward").click(function(){
+                var data= 'data='+'forward';
+                $.ajax({
+                    type:'POST',
+                    url:'/control/',
+                    data:data,
+                })
+            });
+            $("#back").click(function(){
+                var data= 'data='+'back';
+                $.ajax({
+                    type:'POST',
+                    url:'/control/',
+                    data:data,
+                })
+            });
+            $("#left").click(function(){
+                var data= 'data='+'left';
+                $.ajax({
+                    type:'POST',
+                    url:'/control/',
+                    data:data,
+                })
+            });
+            $("#right").click(function(){
+                var data= 'data='+'right';
+                $.ajax({
+                    type:'POST',
+                    url:'/control/',
+                    data:data,
+                })
+            });
+            $("#stop").click(function(){
+                var data= 'data='+'stop';
+                $.ajax({
+                    type:'POST',
+                    url:'/control/',
+                    data:data,
+                })
+            });
+
+        })
+    </script>
+</head>
+<body>
+    <h1>摄像头画面</h1>
+    <img src="{{ url_for('video_start') }}" width="60%"><br>
+    <div>
+        <input type="submit" value="前进" name="前进" id="forward">
+    </div>
+    <br>
+    <div>
+        <input type="submit" value="左转弯" name="左转弯" id="left" >
+        <input type="submit" value="停止" name="停止" id="stop">
+        <input type="submit" value="右转弯" name="右转弯" id="right">
+    </div>
+    <br>
+    <div>
+        <input type="submit" value="后退" name="后退" id="back">
+    </div>
+
+
+</body>
+</html>
